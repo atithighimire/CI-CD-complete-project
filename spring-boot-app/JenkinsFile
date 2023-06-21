@@ -15,8 +15,9 @@ pipeline {
     stage('Build and Test') {
       steps {
         sh 'ls -ltr'
+        sh 'echo passed for build and test'
         // build the project and create a JAR file
-        sh 'cd spring-boot-app && mvn clean package'
+        sh 'cd /spring-boot-app && mvn clean package'
       }
     }
     stage('Static Code Analysis') {
