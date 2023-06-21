@@ -5,16 +5,6 @@ pipeline {
      args '--user root -v /var/run/docker.sock:/var/run/docker.sock' // mount Docker socket to access the host's Docker daemon
     }
   }
-    options {
-        // Grant Docker socket access
-        docker.withServer('unix:///var/run/docker.sock') {
-            docker.image('abhishekf5/maven-abhishek-docker-agent:v1').inside('-u root') {
-                // Run commands with root user inside the Docker container
-                // Additional commands or steps as needed
-            }
-        }
-    }
-
   stages {
     stage('Checkout') {
       steps {
